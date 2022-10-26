@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+    <div class="col-sm-6">
+      <h3 *ngIf ="editMode === false">Post Add </h3>
+      <h3 *ngIf ="editMode === true">Post Edit</h3>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+              <label>Title</label>
+              <input class="form-control" type="text" formControlName ="title">
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" type="text" formControlName ="description"></textarea>
+            <div class="form-group">
+                <label>Image Path</label>
+                <input class="form-control" type="text"formControlName ="ImagePath">
+                <img class="img-responsive" src="{{ this.form.value.ImagePath }}">
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="form.invalid">Save</button> | 
+            <button type="reset" class="btn btn-primary">Clear</button>
+        </div>
+      </form>
+         </div>
+    </div>
+</div>
